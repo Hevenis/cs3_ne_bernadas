@@ -190,7 +190,7 @@ How meaningful are the variable names? not exactly |
    
    Does it avoid crashing when inputs are unusual? No |
     
-    Does it check that the list is sorted before using Linear Search? No |
+   Does it check that the list is sorted before using Linear Search? No |
 
 
 **Implementation 2**
@@ -201,7 +201,7 @@ How meaningful are the variable names? not exactly |
    
    Does it avoid crashing when inputs are unusual? No |
     
-    Does it check that the list is sorted before using Binary Search? No |
+  Does it check that the list is sorted before using Binary Search? No |
 
 
 **6. Final Answer**
