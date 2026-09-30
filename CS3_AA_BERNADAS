@@ -1,0 +1,96 @@
+class Plant:
+    def __init__(self, name, health, damage):
+        self.name = name
+        self.health = health
+        self.damage = damage
+
+    def attack(self, zombie):
+        print(f"{self.name} attacks {zombie.name} for {self.damage} hitpointieessss")
+        zombie.take_damage(self.damage)
+
+    def take_damage(self, amount):
+        self.health -= amount
+        if self.health < 0:
+            self.health = 0
+
+    def is_alive(self):
+        return self.health > 0
+
+
+class Zombie:
+    def __init__(self, name, health, damage, distance):
+        self.name = name
+        self.health = health
+        self.damage = damage
+        self.distance = distance
+
+    def move(self):
+        self.distance -= 1
+        print(f"{self.name} a step forward... in reference to the direction of the plant btw. Current distance: {self.distance}")
+
+    def attack(self, plant):
+        print(f"{self.name} attacks {plant.name} for {self.damage} hitpointiesssssssss")
+        plant.take_damage(self.damage)
+
+    def take_damage(self, amount):
+        self.health -= amount
+        if self.health < 0:
+            self.health = 0
+
+    def is_alive(self):
+        return self.health > 0
+
+
+def run_gamethingamajig():
+    
+    plant1 = Plant("Shootpea", health= 20, damage=5)
+    plant2 = Plant("Shoot3pea", health=25, damage=8)
+    zombie = Zombie("AnuerysmByCone", health=60, damage=10, distance=3)
+
+    turn = 1
+    print("Time for PVZ, lol")
+    print(f"{plant1.name}: HP={plant1.health}, DMG={plant1.damage}")
+    print(f"{plant2.name}: HP={plant2.health}, DMG={plant2.damage}")
+    print(f"{zombie.name}: HP={zombie.health}, DMG={zombie.damage}, Distance={zombie.distance}")
+    print("Sadly, you can't place the plants urself\n")
+
+
+    while zombie.is_alive() and (plant1.is_alive() or plant2.is_alive()):
+
+
+        if plant1.is_alive():
+            plant1.attack(zombie)
+            print(f"Status: {zombie.name} HP = {zombie.health}")
+            if not zombie.is_alive():
+                print("Can't believe green stuff (plants) wins against flesh green stuff")
+                break
+
+        if plant2.is_alive():
+            plant2.attack(zombie)
+            print(f"Status: {zombie.name} HP = {zombie.health}")
+            if not zombie.is_alive():
+                print("Would you like at that, the plants win. I still hate flowers though")
+                break
+
+        if zombie.distance > 0:
+            zombie.move()
+        else:
+
+            target_plant = plant1 if plant1.is_alive() else plant2
+            zombie.attack(target_plant)
+            print(f"Status: {target_plant.name} HP = {target_plant.health}")
+            
+            if not plant1.is_alive() and not plant2.is_alive():
+                print("Sadly, the flesh green thing (the zombie) wins")
+                break
+
+
+        turn += 1
+
+    print("\n")
+
+
+if __name__ == "__main__":
+    run_gamethingamajig()
+
+#I have no idea if I did it right
