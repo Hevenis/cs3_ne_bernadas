@@ -6,5 +6,43 @@ Thinking Skills:
 
 3. The damage and health for both and distance for the zombie.
 
+4. 
+
+
+I think this is how it works:
+1.Plant 1 attacks
+2.Plant 2 attacks
+3.Check if zombie is dead-
+-If yes, stop
+-If no, continue
+4.Zombie steps forward
+
+5.If zombie in front of plant-
+-Zombie attacks
+-Plant 1 attacks
+-Plant 2 attacks
+
+-Check if zombie or plant is dead-
+
+5.1
+-If yes:
+- -check if zombie is dead
+- –If yes, plants win
+- –If no, continue
+
+- -check if plant is dead
+- –If yes, step forward
+- –If no, zombie attack
+
+-If no:
+- -Zombie attacks
+- -Plant 1 attacks
+- -Plant 2 attacks
+- Loop 5.1
+
+7. If no more plants:
+-Zombie wins
+
+I don’t know how different my code is from this, I know I was basing it off it though.
 
 
